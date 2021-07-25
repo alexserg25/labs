@@ -1,0 +1,144 @@
+
+public class Main {
+
+    private int sizeArray = (int) Math.pow(10, 8);
+
+    private int[] a = new int[sizeArray];
+    private int[] b = new int[sizeArray];
+    private int[] buffer = new int[sizeArray/2];
+
+    private int sizeBuffer = 0;
+    private int recordReader = 0;
+    private int recordWriter = 0;
+
+   class WriterData extends Thread {
+       @Override
+       public void run() {
+
+           int counter = 0;
+           System.out.println("Writer data");
+
+           while (recordWriter < sizeArray) {
+               if (recordWriter < recordReader) {
+
+                   counter = getCounterWriter();
+                   b[recordWriter] = buffer[counter];
+
+                   recordWriter++;
+               }
+               else {
+                   try {
+                       sleep(2);
+                   } catch (Exception e) {}
+               }
+           }
+       }
+   }
+
+    class ReaderData extends Thread {
+        @Override
+        public void run() {
+
+            int counter = 0;
+            System.out.println("Reader Data");
+
+            while (recordReader < sizeArray) {
+                if (recordReader < recordWriter + sizeBuffer) {
+
+                    counter = getCounterReader();
+                    buffer[counter] = a[recordReader];
+
+                    recordReader++;
+                }
+                else {
+                    try {
+                        sleep(2);
+                    } catch (Exception e) {}
+                }
+            }
+
+        }
+    }
+
+    private int getCounterReader() {
+       int res = recordReader % sizeBuffer;
+       return res;
+    }
+
+    private int getCounterWriter() {
+        int res = recordWriter % sizeBuffer;
+        return res;
+    }
+
+    public static void main(String[] args) {
+        Main app = new Main();
+        app.startApp();
+    }
+
+    private void startApp() {
+
+        long startTime = 0;
+        long endTime = 0;
+
+        for (int i = 0; i < sizeArray; i++) {
+            a[i] = Integer.MAX_VALUE;
+        }
+
+        WriterData writerData = new WriterData();
+
+        ReaderData readerData = new ReaderData();
+
+        sizeBuffer = 10;
+/*
+        while (sizeBuffer < sizeArray/2) {
+            startTime = System.currentTimeMillis();
+
+            readerData.start();
+            writerData.start();
+
+            if (readerData.isAlive()) {
+                try {
+                    readerData.join();
+                } catch (InterruptedException e) {}
+            }
+
+            if (writerData.isAlive()) {
+                try {
+                    writerData.join();
+                } catch (InterruptedException e) {}
+            }
+
+            endTime = System.currentTimeMillis();
+
+            System.out.println("Buffer size = " + sizeBuffer);
+            System.out.println("Run time = " + (endTime - startTime));
+
+            sizeBuffer *= 5;
+        }
+        */
+
+        sizeBuffer = sizeArray/2 - 1;
+
+        startTime = System.currentTimeMillis();
+
+        readerData.start();
+        writerData.start();
+
+//        do {
+//            try {
+//                readerData.join();
+//            } catch (InterruptedException e) {}
+//        } while (readerData.isAlive());
+
+        if (writerData.isAlive()) {
+            try {
+                writerData.join();
+            } catch (InterruptedException e) {}
+        }
+
+        endTime = System.currentTimeMillis();
+
+        System.out.println("Buffer size = " + sizeBuffer);
+        System.out.println("Run time = " + (endTime - startTime));
+    }
+}

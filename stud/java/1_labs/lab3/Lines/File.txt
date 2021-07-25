@@ -1,0 +1,1 @@
+Line coordinate: x1 = 512, y1 = 998, x2 = 1, y2 = 544! Count points = 2 

@@ -1,0 +1,52 @@
+class Aircraft(numberSeats: Int, year: Int) {
+    var numberSeats: Int = 0
+        set(value) {
+            if (value > 0)
+                field = value
+        }
+    val year: Int
+    var model: String? = null
+        get() = if (field == null) "" else field
+
+    init {
+        this.numberSeats = numberSeats
+        this.year = year
+    }
+
+    constructor(numberSeats: Int, year: Int, model: String) : this(numberSeats, year) {
+        this.model = model
+    }
+}
+
+class Car(type: String, brand: String, year: Int) {
+    val type: String
+    val brand: String
+    var year: Int = 1806
+    set(value) {
+        if (value > 1806) field = value
+    }
+
+    init {
+        this.type = type
+        this.brand = brand
+        this.year = year
+    }
+}
+
+fun main(args: Array<String>) {
+    println("Task 1:")
+    val boing = Aircraft(5, 2010)
+    println("Number seats: ${boing.numberSeats}, year = ${boing.year}")
+
+    val aircraft: Aircraft = Aircraft(108, 2010, "superjet-100")
+    println("Number seats: ${aircraft.numberSeats}, year = ${aircraft.year}, model: ${aircraft.model}")
+
+    println("\nTask 2:")
+    val moto = Car("motorbike", "suzuki", 2010)
+    moto.printInformation()
+    val bus = Car("bus", "gaz", 1995)
+    bus.printInformation()
+
+}
+
+fun Car.printInformation(): Unit = println("Type: $type, brand: $brand, year: $year")

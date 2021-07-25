@@ -1,0 +1,130 @@
+unit Unit1;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls;
+
+type
+  TForm1 = class(TForm)
+    eFIO: TEdit;
+    eNum: TEdit;
+    Label1: TLabel;
+    Label2: TLabel;
+    GroupBox1: TGroupBox;
+    rbStudent: TRadioButton;
+    rbProfessor: TRadioButton;
+    btnAddList: TButton;
+    btnViewList: TButton;
+    procedure btnAddListClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+       
+   // базовый класс
+  TPerson=class
+    protected
+       fname:string; // имя
+       // Объявление конструктора объекта
+       constructor  Create(name:string);
+       // Метод получения имени.
+       function GetName: String;
+       // Виртуальный метод info, будет переопределяться дочерними
+       function info: string; virtual;
+    public
+      // Объявляем свойство Name, для доступа к fname
+      Property Name: String
+      read GetName;
+  end;
+  // производный от базового TPerson
+  TStud=class(TPerson)
+      fgr:integer; // номер группы
+      // Объявление конструктора объекта
+      constructor Create(name:string;gr:integer);
+      // Переопределение своего метода info
+      function info: string; override;
+  end;
+  // производный от базового TPerson
+  TProf=class(TPerson)
+      fdep:string; // название кафедры
+      constructor  Create(name:string;dep:string);
+      // Переопределение своего метода info
+      function info: string; override;
+  end;
+
+
+var
+  Form1: TForm1;
+
+
+
+
+implementation
+
+{$R *.dfm}
+
+const
+  // длинна массива
+  SZL = 10;
+var
+  // массив людей
+  list:array[1..SZL] of TPerson;
+  // Текущее число людей в списке
+  countPers: Integer; 
+
+  // Конструктор объекта TPerson
+  constructor TPerson.Create(name: String);
+  begin
+    fname := name;
+  end;
+
+  // Конструктор объекта TStud
+  constructor TStud.Create(name:string;gr:integer);
+  begin
+    // Обращение к конструктору родительского класса.
+    inherited Create(name);
+    fgr := gr;
+  end;
+
+  // Конструктор объекта TProf
+  constructor TProf.Create(name:string;dep:string);
+  begin
+    // Обращение к конструктору родительского класса.
+    inherited Create(name);
+    fdep := dep;
+  end;
+
+  // Описание виртуального метода
+  function  TPerson.info:string;
+  begin
+      result:='';
+  end;
+
+  //метод получения значения свойства Name
+  Function TPerson.GetName;
+  begin
+    Result := FName;
+  end;
+
+
+  function  TStud.info:string;
+  begin
+       result := fname + ' гp.' + IntTostr(fgr);
+  end;
+
+
+  function  TProf.info:string;
+  begin
+        result := fname + 'каф.' + fdep;
+  end;
+
+
+procedure TForm1.btnAddListClick(Sender: TObject);
+begin
+  ShowMessage('Test');
+end;
+
+end.

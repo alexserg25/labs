@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="2838aa2a-7371-4c20-bcff-6ff037731a08" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="1" />
+  </component>
+  <component name="ProjectId" id="1UU6oAzooHOV6pkUfQTpYnkQJAk" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+  </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="stri" />
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="StringArray" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="StringArray" />
+      <module name="StringArray" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.StringArray" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2838aa2a-7371-4c20-bcff-6ff037731a08" name="Default Changelist" comment="" />
+      <created>1575398998462</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1575398998462</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="1212" height="173" key="GridCell.Tab.0.bottom" timestamp="1575401977857">
+      <screen x="0" y="0" width="1280" height="776" />
+    </state>
+    <state width="1212" height="173" key="GridCell.Tab.0.bottom/0.0.1280.776@0.0.1280.776" timestamp="1575401977857" />
+    <state width="1212" height="173" key="GridCell.Tab.0.center" timestamp="1575401977855">
+      <screen x="0" y="0" width="1280" height="776" />
+    </state>
+    <state width="1212" height="173" key="GridCell.Tab.0.center/0.0.1280.776@0.0.1280.776" timestamp="1575401977855" />
+    <state width="1212" height="173" key="GridCell.Tab.0.left" timestamp="1575401977854">
+      <screen x="0" y="0" width="1280" height="776" />
+    </state>
+    <state width="1212" height="173" key="GridCell.Tab.0.left/0.0.1280.776@0.0.1280.776" timestamp="1575401977854" />
+    <state width="1212" height="173" key="GridCell.Tab.0.right" timestamp="1575401977856">
+      <screen x="0" y="0" width="1280" height="776" />
+    </state>
+    <state width="1212" height="173" key="GridCell.Tab.0.right/0.0.1280.776@0.0.1280.776" timestamp="1575401977856" />
+    <state x="303" y="171" width="672" height="677" key="run.anything.popup" timestamp="1575400131346">
+      <screen x="0" y="0" width="1280" height="776" />
+    </state>
+    <state x="303" y="171" width="672" height="677" key="run.anything.popup/0.0.1280.776@0.0.1280.776" timestamp="1575400131346" />
+  </component>
+</project>

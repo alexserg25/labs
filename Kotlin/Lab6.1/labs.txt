@@ -1,0 +1,32 @@
+import kotlin.math.abs
+
+fun main(args: Array<String>) {
+    val a = 1
+    val b = -2
+    println("$a ${compareNumbers(1, - 2)} $b")
+    println("In absolut value: \" $a ${compareNumbers(1, - 2, true)} $b\"")
+
+    println(printValues(prefix = "number", "one", "two", "three", "four", "five"))
+}
+
+fun compareNumbers(val1: Int, val2: Int, absolute: Boolean = false): Char {
+    return if (absolute) {
+        when {
+            abs(val1) > abs(val2) -> '>'
+            abs(val1) < abs(val2) -> '<'
+            else -> '='
+        }
+    } else {
+        when {
+            val1 > val2 -> '>'
+            val1 < val2 -> '<'
+            else -> '='
+        }
+    }
+}
+
+fun printValues(prefix: String, vararg numbers: String): Unit {
+    for (num in numbers) {
+        println("$prefix: $num")
+    }
+}
